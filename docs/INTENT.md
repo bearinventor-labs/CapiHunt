@@ -53,3 +53,20 @@ Gameplay:
 Project:
 - Docs: you MUST document everything with comments. 
 - Checks: run a cargo check / build to verify the game complies cleanly. 
+- Directory: use separate files for game states
+    title, playing, game over, credits, and save select
+- Title:
+    - attributes:
+        new start, load save, options, credits
+- Credits:
+    - attributes:
+        scroll, exit to title
+- Playing:
+    - attributes:
+        pause: allows save, options, exit
+            options:
+                music, sound
+        playing: standard running
+- Game Over:
+    - attributes:
+        overall game stats, credits, exit
