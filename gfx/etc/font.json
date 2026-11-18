@@ -1,0 +1,26 @@
+{
+    "in-glyphs":  [
+                      "!\"#$%\u0026\u0027()*+,-./0",
+                      "123456789:;\u003c=\u003e?@",
+                      "ABCDEFGHIJKLMNOP",
+                      "QRSTUVWXYZ[\\]^_`",
+                      "abcdefghijklmnop",
+                      "qrstuvwxyz{|}~"
+                  ],
+    "glyph-width":  6,
+    "glyph-height":  8,
+    "glyph-ofs-x":  0,
+    "glyph-ofs-y":  0,
+    "glyph-sep-x":  0,
+    "glyph-sep-y":  0,
+    "glyph-baseline":  7,
+    "glyph-spacing":  1,
+    "font-is-mono":  false,
+    "font-ascend":  700,
+    "font-descend":  -100,
+    "font-line-gap":  200,
+    "font-px-size":  100,
+    "overrides":  [
+
+                  ]
+}
