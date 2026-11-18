@@ -53,7 +53,10 @@ Gameplay:
 Project:
 - Docs: you MUST document everything with comments. 
 - Checks: run a cargo check / build to verify the game complies cleanly. 
-- Directory: use separate files for game states
+- Directory: use separate Rust files for game states
+    - assets: gfx/*type*
+        *type*:
+            music, sound, player, capi, world, title, pause, credits, etc.
     title, playing, game over, credits, and save select
 - Title:
     - attributes:
