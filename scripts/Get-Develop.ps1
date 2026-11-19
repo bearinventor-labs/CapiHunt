@@ -301,6 +301,7 @@ while ($true) {
                 Write-Host "An error occurred while compiling the game in Release Mode." -ForegroundColor Red
                 Write-Debug $_.Exception.Message
             }
+            Read-Host -Prompt ": Press Enter to continue"
             # ----------------------------------
             # Pop Location back to original directory
             # ----------------------------------

@@ -16,8 +16,13 @@ rustdocflags = [
     "-Ctarget-cpu=arm7tdmi",
     "-Cforce-frame-pointers=yes",
 ]
-
-runner = ["mgba-qt", "-C", "logToStdout=1", "-C", "logLevel.gba.debug=127"]
+runner = [
+  "C:/Program Files/mGBA/mgba-qt.exe",
+  "-C",
+  "logToStdout=1",
+  "-C",
+  "logLevel.gba.debug=127",
+]
 
 [target.armv4t-none-eabi]
 rustflags = [
