@@ -280,7 +280,31 @@ while ($true) {
         # Run your game in Release Mode
         # ----------------------------------
         "5" {
-
+            # ----------------------------------
+            # Push Location to Working Directory
+            # ----------------------------------
+            Push-Location -Path $newFolderName
+            # ----------------------------------
+            # Run the game in Release Mode
+            # ----------------------------------
+            try {
+                cargo build --release
+                Write-Host "Game compiled successfully in Release Mode." -ForegroundColor Green
+                try {
+                    cargo run --release
+                    Write-Host "Game ran successfully in Release Mode." -ForegroundColor Green
+                } catch {
+                    Write-Host "An error occurred while running the game in Release Mode." -ForegroundColor Red
+                    Write-Debug $_.Exception.Message    
+                }
+            } catch {
+                Write-Host "An error occurred while compiling the game in Release Mode." -ForegroundColor Red
+                Write-Debug $_.Exception.Message
+            }
+            # ----------------------------------
+            # Pop Location back to original directory
+            # ----------------------------------
+            Pop-Location
         }
         # ----------------------------------
         # Compile your game for GBA Hardware
