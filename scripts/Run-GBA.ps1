@@ -18,6 +18,12 @@ function Run-GBA {
         The name of the game to deploy.
     #>
     # ----------------------------------
+    # Load Functions
+    # ----------------------------------
+    Get-ChildItem -Path $scriptDir -Filter '*.ps1' -File | ForEach-Object {
+        . $_.FullName
+    }
+    # ----------------------------------
     # Game Variables
     # ----------------------------------
     $workDir = "C:\Users\$($env:USERNAME)\Documents\GitHub"
