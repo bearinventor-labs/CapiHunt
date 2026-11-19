@@ -179,7 +179,7 @@ while ($true) {
                 # PAUSE #
                 # # # # # 
                 Write-Host "All Developer Tools Checked and/or Installed." -ForegroundColor Green
-                Read-Host -Prompt ": Press Enter to continue"
+                Read-Host -Prompt ": Press Enter to continue "
             }
         }
         # ----------------------------------
@@ -262,7 +262,7 @@ while ($true) {
             # PAUSE #
             # # # # # 
             Write-Host "Template downloaded and renamed successfully." -ForegroundColor Green
-            Read-Host -Prompt ": Press Enter to continue"
+            Read-Host -Prompt ": Press Enter to continue "
         }
         # ----------------------------------
         # Run your game in Debug Mode (if available)
@@ -280,7 +280,32 @@ while ($true) {
         # Run your game in Release Mode
         # ----------------------------------
         "5" {
-
+            # ----------------------------------
+            # Push Location to Working Directory
+            # ----------------------------------
+            Push-Location -Path $newFolderName
+            # ----------------------------------
+            # Run the game in Release Mode
+            # ----------------------------------
+            try {
+                cargo build --release
+                Write-Host "Game compiled successfully in Release Mode." -ForegroundColor Green
+                try {
+                    cargo run --release
+                    Write-Host "Game ran successfully in Release Mode." -ForegroundColor Green
+                } catch {
+                    Write-Host "An error occurred while running the game in Release Mode." -ForegroundColor Red
+                    Write-Debug $_.Exception.Message    
+                }
+            } catch {
+                Write-Host "An error occurred while compiling the game in Release Mode." -ForegroundColor Red
+                Write-Debug $_.Exception.Message
+            }
+            Read-Host -Prompt ": Press Enter to continue "
+            # ----------------------------------
+            # Pop Location back to original directory
+            # ----------------------------------
+            Pop-Location
         }
         # ----------------------------------
         # Compile your game for GBA Hardware
@@ -292,7 +317,13 @@ while ($true) {
         # Clean Cargo
         # ----------------------------------
         "C" {
-
+            Write-Host "Would you like to clean the cargo build? (This will dramatically increase build times)" -ForegroundColor Cyan
+            $cmd = Read-Host -Prompt "(Y/n)"
+            if ($cmd -eq "Y") {
+                cargo clean
+            } else {
+                Write-Host "Cargo clean canceled." -ForegroundColor Yellow
+            }
         }
         "Q" { 
             exit 0
